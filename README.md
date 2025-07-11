@@ -64,6 +64,28 @@ The extension analyzes Twitch stream pages to provide:
 - Requires chat to be loaded in the Twitch interface
 - Some custom bots might not be filtered automatically
 
+## Technical Considerations
+
+### DOM Structure Dependency
+
+This extension relies on Twitch.tv's current website structure to:
+- Extract viewer counts from specific DOM elements
+- Identify chat messages in the page layout
+- Detect stream status and duration
+
+If Twitch updates their frontend:
+   - Selectors may become invalid
+   - Data extraction points might break
+   
+### DOM Element Dependencies
+
+| Feature            | Selector                                      | Data Source          |
+|--------------------|-------------------------------------------------------|----------------------|
+| Viewer Count       | `strong[data-a-target="animated-channel-viewers-count"]` | `textContent`        |
+| Usernames         | `.chat-line__username`                                | `innerText`          |
+| Stream Status     | `div.channel-root.channel-root--watch-chat.channel-root--live.channel-root--watch.channel-root--unanimated` |         -          |
+| Stream Duration   | `.live-time`                                          | `textContent`        |
+
 ## Advanced Configuration and Features
 
 ### ⚙️ Update Frequency Customization
