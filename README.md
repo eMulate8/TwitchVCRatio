@@ -55,9 +55,7 @@ The extension analyzes Twitch stream pages to provide:
 ## Usage
 
 - Navigate to any Twitch live stream
-
 - Click the extension icon to view analytics
-
 - Metrics will automatically update every 30 seconds
 
 ## Known Limitations
@@ -72,7 +70,7 @@ The extension analyzes Twitch stream pages to provide:
 
 You can adjust the data refresh rate by modifying the interval variable:
 
-const updateInterval = 30000; // value in milliseconds (default 30 seconds)
+`const updateInterval = 30000;` // value in milliseconds (default 30 seconds)
 
 Refresh time = average time from when a message appears in the chat until it moves off the top edge of the chat
 The current update time is suitable for channels with 100 - 300 viewers
@@ -83,13 +81,14 @@ The current update time is suitable for channels with 100 - 300 viewers
 Current formula assumes:
 
 // Current assumption: 50% of inactive users left
-const averageRatio = ((activeChatters + (inactiveChatters * 0.5)) / averageViewers;
+`const averageRatio = ((activeChatters + (inactiveChatters * 0.5)) / averageViewers;`
 
 You can adjust this setting if you do not agree with this proposal.
 
 
 ### 🗃️ Database Server Integration Potential
 Proposed architecture for historical data:
+
 graph LR
     A[Extension] -->|POST data| B[Server]
     B --> C[(Database)]
@@ -106,12 +105,7 @@ Benefits of server integration:
 ### 🤖 Bot List Maintenance
 Current bot list in array:
 
-const bots = [
-  'twitchbot',
-  'moobot',
-  'nightbot',
-  // ... other bots
-];
+`const bots = ['twitchbot','moobot','nightbot', // ... other bots];`
 
 Maintenance recommendations:
 
