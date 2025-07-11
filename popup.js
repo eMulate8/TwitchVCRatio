@@ -83,11 +83,14 @@ async function processActiveTab(tab) {
 			streamer.textContent = clearedPath;
 		}
 		const online = doc.querySelector('strong[data-a-target="animated-channel-viewers-count"]');
+		console.log(online.textContent);
 		const chatMembers = doc.querySelectorAll('.chat-line__username');
 		const liveTime = doc.querySelector('.live-time');
 		if (online) {
-			const viewersCount = Number(online.textContent);
-			highlightOnUpdate(viewers, online.textContent);
+			const textCount = online.textContent;
+			const cleanedCount = textCount.replace(/\D/g, '');
+			const viewersCount = Number(cleanedCount);
+			highlightOnUpdate(viewers, textCount);
 			onlineAmountList.add(viewersCount);
 			const currentChattersList = Array.from(chatMembers).map(chatMember => chatMember.innerText);
 			const currentSeconds = timeStringToSeconds(liveTime.textContent);
@@ -102,8 +105,9 @@ async function processActiveTab(tab) {
 					chattersList.delete(key);
 				}
 			}
-			const currentRatio = Math.round((chattersList.size / viewersCount) * 100) / 100;
-			const averageRatio = Math.round(((chattersList.size + innactiveChatters.size / 2) / onlineAmountList.getAverage()) * 100) / 100;
+
+			const currentRatio = Math.round((chattersList.size / viewersCount) * 1000) / 1000;
+			const averageRatio = Math.round(((chattersList.size + innactiveChatters.size / 2) / onlineAmountList.getAverage()) * 1000) / 1000;
 			ratioList.set(currentSeconds, [currentRatio, averageRatio]);
 			highlightOnUpdate(chatters, chattersList.size);
 			highlightOnUpdate(currnetRatio, ratioList.get(currentSeconds)[0]);
