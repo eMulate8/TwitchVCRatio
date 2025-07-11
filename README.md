@@ -80,27 +80,22 @@ The current update time is suitable for channels with 100 - 300 viewers
 
 Current formula assumes:
 
-// Current assumption: 50% of inactive users left
+Current assumption: 50% of inactive users left
+
 `const averageRatio = ((activeChatters + (inactiveChatters * 0.5)) / averageViewers;`
 
 You can adjust this setting if you do not agree with this proposal.
 
 
 ### 🗃️ Database Server Integration Potential
-Proposed architecture for historical data:
 
-graph LR
-    A[Extension] -->|POST data| B[Server]
-    B --> C[(Database)]
-    C --> D[Analytics]
-    D --> E[Visualization]
-    D --> F[Anomaly Detection]
+To enable historical data tracking and advanced analytics, you can set up a backend server with database support
 	
 Benefits of server integration:
 
 - Historical engagement analysis
 - Botting pattern detection
-
+- Formula optimization based on statistics
 
 ### 🤖 Bot List Maintenance
 Current bot list in array:
