@@ -55,9 +55,7 @@ The extension analyzes Twitch stream pages to provide:
 ## Usage
 
 - Navigate to any Twitch live stream
-
 - Click the extension icon to view analytics
-
 - Metrics will automatically update every 30 seconds
 
 ## Known Limitations
