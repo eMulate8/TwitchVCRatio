@@ -1,0 +1,79 @@
+body {
+    color: #efeff1;
+    background-color: #0e0e10;
+    font-family: "Inter", "Noto Sans Arabic", "Roobert", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 16px;
+	font-size: 14px;
+	text-align: center;
+	scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+	width: 100%;
+}
+
+h2[hidden] {
+    display: none !important;
+}
+
+h2:not([hidden]) {
+    margin: 8px auto;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    border: 3px solid #9147FF;
+    border-radius: 8px;
+    display: inline-block;
+    background-color: rgba(20, 20, 25, 0.5);
+    box-shadow: 0 0 10px rgba(145, 71, 255, 0.3);
+}
+
+div {
+    margin-top: 15px;
+	text-align: left;
+}
+
+p {
+    display: flex;
+    justify-content: space-between;
+	font-size: 1em;
+}
+
+
+p > span:first-child {
+    font-weight: bold;
+}
+
+
+p > span:last-child {
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+#warn {
+    color: #ff3333;
+    font-weight: bold;
+}
+
+
+@keyframes highlight {
+    from { 
+		background-color: rgba(145, 71, 255, 1); 
+		box-shadow: 0 0 8px rgba(145, 71, 255, 0.8);
+	}
+    to { 
+		background-color: transparent; 
+		box-shadow: none;
+	}
+}
+
+.highlight {
+    animation: highlight 1.2s ease-out;
+}
