@@ -83,7 +83,6 @@ async function processActiveTab(tab) {
 			streamer.textContent = clearedPath;
 		}
 		const online = doc.querySelector('strong[data-a-target="animated-channel-viewers-count"]');
-		console.log(online.textContent);
 		const chatMembers = doc.querySelectorAll('.chat-line__username');
 		const liveTime = doc.querySelector('.live-time');
 		if (online) {
